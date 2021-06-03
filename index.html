@@ -12,6 +12,67 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <header>
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+      </header>
+      <main clas="container">
+        <section id="landing" class="row">
+          <form id="sign-in" class="col-md-5 p-4 mt-3">
+            <h3>Sign in</h3>
+            <label for="userEmail"></label>
+            <input class="form-control" type="email" name="credentials[email]" id="userEmail" placeholder="Enter your email">
+            <label for="userPassword"></label>
+            <input class="form-control" type="password" name="credentials[password]" id="userPassword" placeholder="Enter password">
+            <button class="btn btn-warning mt-3" type="submit">Login</button>
+          </form>
+          <form id="sign-up" class="col-md-5 p-4 mt-3">
+            <h3>Sign up</h3>
+            <label for="userId"></label>
+            <input class="form-control" type="text" name="credentials[email]" id="userId" placeholder="Create user ID">
+            <label for="userPassword"></label>
+            <input class="form-control" type="password" name="credentials[password]" id="newUserPassword" placeholder="Create password">
+            <label for="userPasswordConfirm"></label>
+            <input class="form-control" type="password" name="credentials[password_confirmation]" id="newUserPasswordConfirm" placeholder="Confirm password">
+            <button class="btn btn-warning mt-3" type="submit">Create Account</button>
+          </form>
+        </section>
+        <section id="main-client">
+          <section id="goals">
+            <div class="goal" id="time-goal"></div>
+            <div class="goal" id="mileage-goal"></div>
+            <div class="goal" id="output-goal"></div>
+            <div class="goal" id="calorie-goal"></div>
+          </section>
+          <section id="buttons">
+            <button class="btn btn-success p-4"></button>
+            <button class="btn btn-warning p-4"></button>
+            <button class="btn btn-danger p-4"></button>
+          </section>
+          <button class="btn btn-success"></button>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Distance</th>
+                <th scope="col">Output</th>
+                <th scope="col">Calories</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>@mdo</td>
+                <td>@mdo</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </main>
     </body>
 </html>
