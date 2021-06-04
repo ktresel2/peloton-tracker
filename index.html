@@ -45,15 +45,13 @@
             <div class="goal" id="calorie-goal"></div>
           </section>
           <section id="buttons">
-            <button class="btn btn-success p-4"></button>
-            <button class="btn btn-warning p-4"></button>
-            <button class="btn btn-danger p-4"></button>
+            <button id="add-ride" class="btn btn-success p-4">New Ride</button>
+            <button id="change-password" class="btn btn-warning p-4" data-toggle="modal" data-target="#change-password-modal">Change Password</button>
+            <button id="sign-out" class="btn btn-danger p-4">Sign Out</button>
           </section>
-          <button class="btn btn-success"></button>
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">#</th>
                 <th scope="col">Date</th>
                 <th scope="col">Time</th>
                 <th scope="col">Distance</th>
@@ -63,16 +61,40 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
+                <td>10-20-21</td>
+                <td>30</td>
+                <td>10</td>
+                <td>300</td>
+                <td>400</td>
+                <td><button class="update-ride btn btn-outline-info">Edit</button><button class="delete-ride btn btn-danger">Delete Ride</button></td>
               </tr>
             </tbody>
           </table>
         </section>
+        <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Change password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="change-password-form">
+                  <label for="oldPW"></label>
+                  <input class="form-control" type="password" name="passwords[old]" id="oldPW" placeholder="Current password">
+                  <label for="newPW"></label>
+                  <input class="form-control" type="password" name="passwords[new]" id="newPW" placeholder="New password">
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     </body>
 </html>
