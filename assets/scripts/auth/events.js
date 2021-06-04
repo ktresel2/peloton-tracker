@@ -2,14 +2,14 @@
 
 const getFormFields = require('./../../../lib/get-form-fields')
 
-const api = require('./../../../../peloton-tracker/app/routes/user_routes')
+const api = require('./api')
 const ui = require('./ui')
 
 const onSignUp = function (e) {
   e.preventDefault()
   const data = getFormFields(e.target)
 
-  api.router.post(data)
+  api.signUp(data)
     .then(ui.onSignUpSuccess).catch(ui.onSignUpFailure)
 }
 
@@ -17,8 +17,20 @@ const onSignIn = function (e) {
   e.preventDefault()
   const data = getFormFields(e.target)
 
-  api.router.post(data)
-    .then(ui.onSignInSuccess).catch(onSignInFailure)
+  api.signIn(data)
+    .then(ui.onSignInSuccess).catch(ui.onSignInFailure)
+}
+
+const onChangePassword = function (e) {
+  e.preventDefault()
+  const data = getFormFields(e.target)
+
+  api.changePassword(data)
+    .then(ui.onChangePasswordSuccess).catch(ui.onChangePAsswordFailure)
+}
+
+const onSignOut = function (e) {
+  api.signOut().then(ui.onSignOutSuccess).catch(ui.onSignOutFailure)
 }
 
 module.exports = {
