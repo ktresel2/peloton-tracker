@@ -5,6 +5,11 @@ const getFormFields = require('./../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 
+const onIndexRides = function () {
+  api.indexRides()
+    .then(ui.onIndexRidesSuccess).catch(ui.onIndexRidesFailure)
+}
+
 const onAddNewRide = function (e) {
   e.preventDefault()
   const data = getFormFields(e.target)
@@ -30,6 +35,7 @@ const onUpdateRide = function (e) {
 }
 
 module.exports = {
+  onIndexRides,
   onAddNewRide,
   onDeleteRide,
   onUpdateRide

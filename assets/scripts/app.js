@@ -16,7 +16,8 @@ $(() => {
   $('#change-password-form').on('submit', authEvents.onChangePassword)
   $('#sign-back-in').on('click', authEvents.onSignBackIn)
 
-  $('#add-ride').on('click', rideEvents.onAddNewRide)
-  $('.delete-ride').on('click', rideEvents.deleteRide)
-  $('.update-ride').on('click', rideEvents.updateRide)
+  $('#index-rides').on('click', rideEvents.onIndexRides)
+  $('#new-ride-form').on('submit', rideEvents.onAddNewRide)
+  $('.delete-ride').on('click', rideEvents.onDeleteRide)
+  $('#update-ride-form').on('submit', rideEvents.onUpdateRide)
 })

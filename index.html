@@ -16,28 +16,24 @@
         <h1>Heading 1</h1>
         <h2>Heading 2</h2>
       </header>
-      <main clas="container">
+      <main class="container">
         <section id="landing" class="row">
           <form id="sign-in" class="col-md-5 p-4 mt-3">
             <h3>Sign in</h3>
-            <label for="userEmail"></label>
             <input class="form-control" type="email" name="credentials[email]" id="userEmail" placeholder="Enter your email">
-            <label for="userPassword"></label>
             <input class="form-control" type="password" name="credentials[password]" id="userPassword" placeholder="Enter password">
             <button class="btn btn-warning mt-3" type="submit">Login</button>
           </form>
           <form id="sign-up" class="col-md-5 p-4 mt-3">
             <h3>Sign up</h3>
-            <label for="userId"></label>
             <input class="form-control" type="text" name="credentials[email]" id="userId" placeholder="Create user ID">
-            <label for="userPassword"></label>
             <input class="form-control" type="password" name="credentials[password]" id="newUserPassword" placeholder="Create password">
-            <label for="userPasswordConfirm"></label>
             <input class="form-control" type="password" name="credentials[password_confirmation]" id="newUserPasswordConfirm" placeholder="Confirm password">
             <button class="btn btn-warning mt-3" type="submit">Create Account</button>
           </form>
         </section>
         <section id="main-client">
+          <h3>Goals for the week</h3>
           <section id="goals">
             <div class="goal" id="time-goal"></div>
             <div class="goal" id="mileage-goal"></div>
@@ -45,7 +41,8 @@
             <div class="goal" id="calorie-goal"></div>
           </section>
           <section id="buttons">
-            <button id="add-ride" class="btn btn-success p-4">New Ride</button>
+            <button id="index-rides" class="btn btn-outline-success p-4">Show All Rides</button>
+            <button id="add-ride" class="btn btn-success p-4" data-toggle="modal" data-target="#new-ride-modal">New Ride</button>
             <button id="change-password" class="btn btn-warning p-4" data-toggle="modal" data-target="#change-password-modal">Change Password</button>
             <button id="sign-out" class="btn btn-danger p-4">Sign Out</button>
           </section>
@@ -57,6 +54,8 @@
                 <th scope="col">Distance</th>
                 <th scope="col">Output</th>
                 <th scope="col">Calories</th>
+                <th scope="col">Instructor</th>
+                <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -66,7 +65,8 @@
                 <td>10</td>
                 <td>300</td>
                 <td>400</td>
-                <td><button class="update-ride btn btn-outline-info">Edit</button><button class="delete-ride btn btn-danger">Delete Ride</button></td>
+                <td>Instructor</td>
+                <td><button class="update-ride btn btn-outline-info" data-toggle="modal" data-target="#update-ride-modal">Edit</button><button class="delete-ride btn btn-danger">Delete Ride</button></td>
               </tr>
             </tbody>
           </table>
@@ -82,14 +82,90 @@
               </div>
               <div class="modal-body">
                 <form id="change-password-form">
-                  <label for="oldPW"></label>
                   <input class="form-control" type="password" name="passwords[old]" id="oldPW" placeholder="Current password">
-                  <label for="newPW"></label>
                   <input class="form-control" type="password" name="passwords[new]" id="newPW" placeholder="New password">
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save changes</button>
                   </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="new-ride-modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add New Ride</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="new-ride-form">
+                  <input class="form-control" type="date" name="rideData[date]" id="newRideDate" placeholder="Date">
+                  <input class="form-control" type="Number" name="rideData[duration]" id="newRideDuration" placeholder="Duration(minutes)">
+                  <input class="form-control" type="Number" name="rideData[distance]" id="newRideDistance" placeholder="Distance(miles)">
+                  <input class="form-control" type="Number" name="rideData[output]" id="newRideOutput" placeholder="Output">
+                  <input class="form-control" type="Number" name="rideData[calories]" id="newRideCalories" placeholder="Calories">
+                  <select class="form-control" name="rideData[instructor]" id="newRideInstrcutor">
+                    <option value="Emma Lovewell">Emma Lovewell</option>
+                    <option value="Matt Wilpers">Matt Wilpers</option>
+                    <option value="Alex Toussaint">Alex Toussaint</option>
+                    <option value="Christine D'Ercole">Christine D'Ercole</option>
+                    <option value="Jess King">Jess King</option>
+                    <option value="Irene Scholz">Irene Scholz</option>
+                    <option value="Ally Love">Ally Love</option>
+                    <option value="Denis Morton">Denis Morton</option>
+                    <option value="Jenn Sherman">Jenn Sherman</option>
+                    <option value="Ben Alldis">Ben Alldis</option>
+                    <option value="Leanne Hainsby">Leanne Hainsby</option>
+                    <option value="Cody Rigsby">Cody Rigsby</option>
+                    <option value="Tunde Oyeneyin">Tunde Oyeneyin</option>
+                  </select>
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="update-ride-modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Update Ride</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="update-ride-form">
+                  <input class="form-control" type="date" name="rideData[date]" id="newRideDate" placeholder="Date">
+                  <input class="form-control" type="Number" name="rideData[duration]" id="newRideDuration" placeholder="Duration(minutes)">
+                  <input class="form-control" type="Number" name="rideData[distance]" id="newRideDistance" placeholder="Distance(miles)">
+                  <input class="form-control" type="Number" name="rideData[output]" id="newRideOutput" placeholder="Output">
+                  <input class="form-control" type="Number" name="rideData[calories]" id="newRideCalories" placeholder="Calories">
+                  <select class="form-control" name="rideData[instructor]" id="newRideInstrcutor">
+                    <option value="Emma Lovewell">Emma Lovewell</option>
+                    <option value="Matt Wilpers">Matt Wilpers</option>
+                    <option value="Alex Toussaint">Alex Toussaint</option>
+                    <option value="Christine D'Ercole">Christine D'Ercole</option>
+                    <option value="Jess King">Jess King</option>
+                    <option value="Irene Scholz">Irene Scholz</option>
+                    <option value="Ally Love">Ally Love</option>
+                    <option value="Denis Morton">Denis Morton</option>
+                    <option value="Jenn Sherman">Jenn Sherman</option>
+                    <option value="Ben Alldis">Ben Alldis</option>
+                    <option value="Leanne Hainsby">Leanne Hainsby</option>
+                    <option value="Cody Rigsby">Cody Rigsby</option>
+                    <option value="Tunde Oyeneyin">Tunde Oyeneyin</option>
+                  </select>
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
                 </form>
               </div>
             </div>
