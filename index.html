@@ -58,16 +58,7 @@
                 <th scope="col">Actions</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>10-20-21</td>
-                <td>30</td>
-                <td>10</td>
-                <td>300</td>
-                <td>400</td>
-                <td>Instructor</td>
-                <td><button class="update-ride btn btn-outline-info" data-toggle="modal" data-target="#update-ride-modal">Edit</button><button class="delete-ride btn btn-danger">Delete Ride</button></td>
-              </tr>
+            <tbody id="tbody">
             </tbody>
           </table>
         </section>
@@ -104,12 +95,12 @@
               </div>
               <div class="modal-body">
                 <form id="new-ride-form">
-                  <input class="form-control" type="date" name="rideData[date]" id="newRideDate" placeholder="Date">
-                  <input class="form-control" type="Number" name="rideData[duration]" id="newRideDuration" placeholder="Duration(minutes)">
-                  <input class="form-control" type="Number" name="rideData[distance]" id="newRideDistance" placeholder="Distance(miles)">
-                  <input class="form-control" type="Number" name="rideData[output]" id="newRideOutput" placeholder="Output">
-                  <input class="form-control" type="Number" name="rideData[calories]" id="newRideCalories" placeholder="Calories">
-                  <select class="form-control" name="rideData[instructor]" id="newRideInstrcutor">
+                  <input class="form-control" type="date" name="rideData[date]" placeholder="Date">
+                  <input class="form-control" type="Number" name="rideData[duration]" placeholder="Duration(minutes)">
+                  <input class="form-control" type="Number" name="rideData[distance]" placeholder="Distance(miles)">
+                  <input class="form-control" type="Number" name="rideData[output]" placeholder="Output">
+                  <input class="form-control" type="Number" name="rideData[calories]" placeholder="Calories">
+                  <select class="form-control" name="rideData[instructor]">
                     <option value="Emma Lovewell">Emma Lovewell</option>
                     <option value="Matt Wilpers">Matt Wilpers</option>
                     <option value="Alex Toussaint">Alex Toussaint</option>
@@ -126,7 +117,7 @@
                   </select>
 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-primary">Save Ride</button>
                 </form>
               </div>
             </div>
@@ -143,12 +134,12 @@
               </div>
               <div class="modal-body">
                 <form id="update-ride-form">
-                  <input class="form-control" type="date" name="rideData[date]" id="newRideDate" placeholder="Date">
-                  <input class="form-control" type="Number" name="rideData[duration]" id="newRideDuration" placeholder="Duration(minutes)">
-                  <input class="form-control" type="Number" name="rideData[distance]" id="newRideDistance" placeholder="Distance(miles)">
-                  <input class="form-control" type="Number" name="rideData[output]" id="newRideOutput" placeholder="Output">
-                  <input class="form-control" type="Number" name="rideData[calories]" id="newRideCalories" placeholder="Calories">
-                  <select class="form-control" name="rideData[instructor]" id="newRideInstrcutor">
+                  <input class="form-control" type="date" name="rideData[date]" placeholder="Date">
+                  <input class="form-control" type="Number" name="rideData[duration]" placeholder="Duration(minutes)">
+                  <input class="form-control" type="Number" name="rideData[distance]" placeholder="Distance(miles)">
+                  <input class="form-control" type="Number" name="rideData[output]" placeholder="Output">
+                  <input class="form-control" type="Number" name="rideData[calories]" placeholder="Calories">
+                  <select class="form-control" name="rideData[instructor]">
                     <option value="Emma Lovewell">Emma Lovewell</option>
                     <option value="Matt Wilpers">Matt Wilpers</option>
                     <option value="Alex Toussaint">Alex Toussaint</option>

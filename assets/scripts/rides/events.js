@@ -19,10 +19,10 @@ const onAddNewRide = function (e) {
 }
 
 const onDeleteRide = function (e) {
-  e.preventDefault()
-  const data = getFormFields(e.target)
-
-  api.deleteRide(data)
+  const rowBtn = e.target
+  const id = $(rowBtn).parents('tr').data('id')
+  console.log(id)
+  api.deleteRide(id)
     .then(ui.onDeleteRideSuccess).catch(ui.onDeleteRideFailure)
 }
 

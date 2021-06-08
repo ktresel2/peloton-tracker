@@ -1,4 +1,4 @@
-# DATE="" DURATION="" MILEAGE="" OUTPUT="" CALORIES="" INSTRUCTOR="" DESCRIPTION="" TOKEN="" sh curl-scripts/rides/create.sh
+# DATE="" DURATION="" MILEAGE="" OUTPUT="" CALORIES="" INSTRUCTOR="" OWNER="" TOKEN="" sh curl-scripts/rides/create.sh
 
 
 API="http://localhost:4741"

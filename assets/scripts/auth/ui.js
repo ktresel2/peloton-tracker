@@ -50,11 +50,9 @@ const onSignOutSuccess = function () {
   store.user = null
   $('h1').text('Good-bye')
   $('h2').text('Signed out successfully')
-  $('#gameboard').addClass('hide')
   $('#change-password').addClass('hide')
   $('#sign-out').addClass('hide')
   $('#sign-back-in').removeClass('hide')
-  $('#restart').addClass('hide')
 }
 
 module.exports = {
