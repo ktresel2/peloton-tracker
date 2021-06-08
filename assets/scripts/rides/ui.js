@@ -14,32 +14,40 @@ const onIndexRidesSuccess = function (res) {
       <td>${ride.calories}</td>
       <td>${ride.instructor}</td>
 
-      <td><button class="update-ride btn btn-outline-info">Edit</button><button class="delete-ride btn btn-danger">Delete Ride</button></td>
+      <td><button class="update-ride btn btn-outline-info">Edit</button><button class="delete-ride btn btn-danger" data-id="${ride._id}">Delete Ride</button></td>
     </tr>
     `
   }))
 }
 
-const onAddNewRideSuccess = function (res) {
+const onAddRideSuccess = function (res) {
+  // console.log(res)
+  $('#new-ride-form').trigger('reset')
+  $('.modal').modal('hide')
   $('#tbody').append(`
-    <tr data-id="${res.ride._id}">
-      <td>${res.ride.date}</td>
-      <td>${res.ride.duration}</td>
-      <td>${res.ride.mileage}</td>
-      <td>${res.ride.output}</td>
-      <td>${res.ride.calories}</td>
-      <td>${res.ride.insturctor}</td>
+      <tr data-id="${res.ride._id}">
+        <td>${res.ride.date}</td>
+        <td>${res.ride.duration}</td>
+        <td>${res.ride.mileage}</td>
+        <td>${res.ride.output}</td>
+        <td>${res.ride.calories}</td>
+        <td>${res.ride.instructor}</td>
 
-      <td><button class="update-ride btn btn-outline-info" data-toggle="modal" data-target="#update-ride-modal">Edit</button><button class="delete-ride btn btn-danger">Delete Ride</button></td>
-    </tr>
-    `)
+        <td><button class="update-ride btn btn-outline-info" data-toggle="modal" data-target="#update-ride-modal">Edit</button><button class="delete-ride btn btn-danger" data-id="${res.ride._id}">Delete Ride</button></td>
+      </tr>
+      `
+  )
+}
+
+const onDeleteRideSuccess = function (res) {
+
 }
 
 module.exports = {
   onIndexRidesSuccess,
-  onAddNewRideSuccess
+  onAddRideSuccess,
   // onAddNewRideFailure,
-  // onDeleteRideSuccess,
+  onDeleteRideSuccess
   // onDeleteRideFailure,
   // onUpdateRidesuccess,
   // onUpdateRideFailure

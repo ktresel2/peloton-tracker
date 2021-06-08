@@ -27,18 +27,18 @@ const addRide = function (data) {
 const deleteRide = function (rideId) {
   return $.ajax({
     method: 'DELETE',
-    url: config.apiUrl + 'rides' + rideId,
+    url: config.apiUrl + '/rides/' + rideId,
     headers: {
       Authorization: `Bearer ${store.user.token}`
     }
   })
 }
 
-const updateRide = function (data) {
+const updateRide = function (rideId, data) {
   return $.ajax({
     method: 'PATCH',
     data,
-    url: config.apiUrl + '/rides' + store.ride._id,
+    url: config.apiUrl + '/rides/' + rideId,
     headers: {
       Authorization: `Bearer ${store.user.token}`
     }

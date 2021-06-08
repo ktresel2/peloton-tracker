@@ -6,6 +6,7 @@ const api = require('./api')
 const ui = require('./ui')
 
 const onIndexRides = function () {
+  // console.log('rrr')
   api.indexRides()
     .then(ui.onIndexRidesSuccess).catch(ui.onIndexRidesFailure)
 }
@@ -13,17 +14,17 @@ const onIndexRides = function () {
 const onAddNewRide = function (e) {
   e.preventDefault()
   const data = getFormFields(e.target)
+  console.log(data)
 
   api.addRide(data)
     .then(ui.onAddRideSuccess).catch(ui.onAddRideFailure)
 }
 
 const onDeleteRide = function (e) {
-  const rowBtn = e.target
-  const id = $(rowBtn).parents('tr').data('id')
-  console.log(id)
+  const id = $(e.target).data('id')
+  // console.log(id)
   api.deleteRide(id)
-    .then(ui.onDeleteRideSuccess).catch(ui.onDeleteRideFailure)
+    .then(ui.onDeleteRideSuccess).then(() => onIndexRides()).catch(ui.onDeleteRideFailure)
 }
 
 const onUpdateRide = function (e) {

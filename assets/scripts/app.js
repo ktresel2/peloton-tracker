@@ -18,6 +18,6 @@ $(() => {
 
   $('#index-rides').on('click', rideEvents.onIndexRides)
   $('#new-ride-form').on('submit', rideEvents.onAddNewRide)
-  $('.delete-ride').on('click', rideEvents.onDeleteRide)
+  $('#tbody').on('click', '.delete-ride', rideEvents.onDeleteRide)
   $('#update-ride-form').on('submit', rideEvents.onUpdateRide)
 })
