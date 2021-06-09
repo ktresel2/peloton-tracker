@@ -13,40 +13,44 @@
     </head>
     <body>
       <header>
-        <h1>Heading 1</h1>
-        <h2>Heading 2</h2>
+        <h1>Peloton Ride Tracker</h1>
+        <h2>Please sign in or create an account.</h2>
       </header>
       <main class="container">
         <section id="landing" class="row">
           <form id="sign-in" class="col-md-5 p-4 mt-3">
             <h3>Sign in</h3>
-            <input class="form-control" type="email" name="credentials[email]" id="userEmail" placeholder="Enter your email">
-            <input class="form-control" type="password" name="credentials[password]" id="userPassword" placeholder="Enter password">
+            <input class="form-control" type="email" name="credentials[email]" id="userEmail" placeholder="Email">
+            <input class="form-control" type="password" name="credentials[password]" id="userPassword" placeholder="Password">
             <button class="btn btn-warning mt-3" type="submit">Login</button>
           </form>
           <form id="sign-up" class="col-md-5 p-4 mt-3">
             <h3>Sign up</h3>
-            <input class="form-control" type="text" name="credentials[email]" id="userId" placeholder="Create user ID">
-            <input class="form-control" type="password" name="credentials[password]" id="newUserPassword" placeholder="Create password">
+            <input class="form-control" type="text" name="credentials[email]" id="userId" placeholder="Email">
+            <input class="form-control" type="password" name="credentials[password]" id="newUserPassword" placeholder="password">
             <input class="form-control" type="password" name="credentials[password_confirmation]" id="newUserPasswordConfirm" placeholder="Confirm password">
             <button class="btn btn-warning mt-3" type="submit">Create Account</button>
           </form>
         </section>
         <section id="main-client">
-          <h3>Goals for the week</h3>
-          <section id="goals">
-            <div class="goal" id="time-goal"></div>
-            <div class="goal" id="mileage-goal"></div>
-            <div class="goal" id="output-goal"></div>
-            <div class="goal" id="calorie-goal"></div>
+          <section class="hide" id="goal-section">
+            <h3>Goals for the week</h3>
+            <section id="goals">
+              <div class="goal" id="time-goal"></div>
+              <div class="goal" id="mileage-goal"></div>
+              <div class="goal" id="output-goal"></div>
+              <div class="goal" id="calorie-goal"></div>
+            </section>
           </section>
+
           <section id="buttons">
-            <button id="index-rides" class="btn btn-outline-success p-4">Show All Rides</button>
-            <button id="add-ride" class="btn btn-success p-4" data-toggle="modal" data-target="#new-ride-modal">New Ride</button>
-            <button id="change-password" class="btn btn-warning p-4" data-toggle="modal" data-target="#change-password-modal">Change Password</button>
-            <button id="sign-out" class="btn btn-danger p-4">Sign Out</button>
+            <button id="index-rides" class="hide btn btn-outline-success p-4">Show All Rides</button>
+            <button id="add-ride" class="hide btn btn-success p-4" data-toggle="modal" data-target="#new-ride-modal">New Ride</button>
+            <button id="change-password" class="hide btn btn-warning p-4" data-toggle="modal" data-target="#change-password-modal">Change Password</button>
+            <button id="sign-out" class="hide btn btn-danger p-4">Sign Out</button>
+            <button id="sign-back-in" class="hide btn btn-success p-4">Sign Back In</button>
           </section>
-          <table class="table">
+          <table class="hide table">
             <thead>
               <tr>
                 <th scope="col">Date</th>
@@ -133,7 +137,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form id="update-ride-form">
+                <form data-id="" id="update-ride-form">
                   <input class="form-control" type="date" name="rideData[date]" placeholder="Date">
                   <input class="form-control" type="Number" name="rideData[duration]" placeholder="Duration(minutes)">
                   <input class="form-control" type="Number" name="rideData[mileage]" placeholder="Distance(miles)">

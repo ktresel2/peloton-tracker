@@ -7,7 +7,7 @@ const onSignUpSuccess = function (res) {
   $('#sign-in-form').trigger('reset')
 
   $('h1').text('Signed up Successfully')
-  $('Please Log in')
+  $('h2').text('Please log in')
 }
 
 const onSignUpFailure = function () {
@@ -19,7 +19,12 @@ const onSignInSuccess = function (res) {
   $('#sign-up').trigger('reset')
   $('#sign-in').trigger('reset')
   $('h1').text('Welcome')
+  $('h2').text('')
   $('#landing').addClass('hide')
+  $('table').removeClass('hide')
+  $('button').removeClass('hide')
+  // $('#goal-section').removeClass('hide')
+  $('#sign-back-in').addClass('hide')
 
   store.user = res.user
 }
@@ -50,9 +55,18 @@ const onSignOutSuccess = function () {
   store.user = null
   $('h1').text('Good-bye')
   $('h2').text('Signed out successfully')
-  $('#change-password').addClass('hide')
-  $('#sign-out').addClass('hide')
+  $('button').addClass('hide')
   $('#sign-back-in').removeClass('hide')
+  $('table').addClass('hide')
+}
+
+const signBackIn = function () {
+  $('h1').text('Welcome')
+  $('h2').text('Sign in')
+  $('#landing').removeClass('hide')
+  $('#sign-back-in').addClass('hide')
+  $('table').addClass('hide')
+  $('form button').removeClass('hide')
 }
 
 module.exports = {
@@ -63,5 +77,6 @@ module.exports = {
   onChangePasswordSuccess,
   onChangePasswordFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+  signBackIn
 }

@@ -6,7 +6,6 @@ const api = require('./api')
 const ui = require('./ui')
 
 const onIndexRides = function () {
-  // console.log('rrr')
   api.indexRides()
     .then(ui.onIndexRidesSuccess).catch(ui.onIndexRidesFailure)
 }
@@ -14,7 +13,6 @@ const onIndexRides = function () {
 const onAddNewRide = function (e) {
   e.preventDefault()
   const data = getFormFields(e.target)
-  console.log(data)
 
   api.addRide(data)
     .then(ui.onAddRideSuccess).catch(ui.onAddRideFailure)
@@ -22,7 +20,6 @@ const onAddNewRide = function (e) {
 
 const onDeleteRide = function (e) {
   const id = $(e.target).data('id')
-  // console.log(id)
   api.deleteRide(id)
     .then(ui.onDeleteRideSuccess).then(() => onIndexRides()).catch(ui.onDeleteRideFailure)
 }
@@ -30,14 +27,24 @@ const onDeleteRide = function (e) {
 const onUpdateRide = function (e) {
   e.preventDefault()
   const data = getFormFields(e.target)
+  const id = $(e.target).data('id')
 
-  api.updateRide(data)
-    .then(ui.onUpdateRideSuccess).catch(ui.onUpdateRideFailure)
+  api.updateRide(id, data)
+    .then(ui.onUpdateRideSuccess).then(() => onIndexRides()).catch(ui.onUpdateRideFailure)
+}
+
+const onBeginUpdate = function (e) {
+  const id = $(e.target).data('id')
+  $('#update-ride-form').data('id', id)
+
+  // For trying to pre-fill the form - work on later
+  // console.log(e.target.parentNode.parentNode.childNodes)
 }
 
 module.exports = {
   onIndexRides,
   onAddNewRide,
   onDeleteRide,
-  onUpdateRide
+  onUpdateRide,
+  onBeginUpdate
 }
