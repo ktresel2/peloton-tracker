@@ -3,7 +3,6 @@
 // const store = require('./../store')
 
 const onIndexRidesSuccess = function (res) {
-  console.log(res.rides)
   $('#tbody').html(res.rides.map(ride => {
     return `
     <tr data-id="${ride._id}">

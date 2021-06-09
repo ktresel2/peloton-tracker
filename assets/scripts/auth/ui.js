@@ -3,8 +3,7 @@
 const store = require('./../store')
 
 const onSignUpSuccess = function (res) {
-  $('#sign-up-form').trigger('reset')
-  $('#sign-in-form').trigger('reset')
+  $('form').trigger('reset')
 
   $('h1').text('Signed up Successfully')
   $('h2').text('Please log in')
@@ -16,8 +15,7 @@ const onSignUpFailure = function () {
 }
 
 const onSignInSuccess = function (res) {
-  $('#sign-up').trigger('reset')
-  $('#sign-in').trigger('reset')
+  $('form').trigger('reset')
   $('h1').text('Welcome')
   $('h2').text('')
   $('#landing').addClass('hide')
@@ -43,8 +41,7 @@ const onChangePasswordSuccess = function () {
 }
 
 const onChangePasswordFailure = function () {
-  $('h1').text('Unsuccessful')
-  $('h2').text('Password reset failure')
+  $('p').text('Failed. Try again.').addClass('error')
 }
 
 const onSignOutFailure = function () {

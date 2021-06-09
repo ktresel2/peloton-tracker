@@ -30,10 +30,12 @@ h1 {
 
 h2 {
   color: $h2-primary;
+}
 
-  &.error {
-    color: $h2-error;
-  }
+.error {
+  color: $h2-error;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 button {
