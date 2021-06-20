@@ -16,13 +16,16 @@ const onSignUpFailure = function () {
 
 const onSignInSuccess = function (res) {
   $('form').trigger('reset')
-  $('h1').text('Welcome')
-  $('h2').text('')
+  $('h1').addClass('hide')
+  $('h2').text('Welcome!')
   $('#landing').addClass('hide')
   $('table').removeClass('hide')
   $('button').removeClass('hide')
-  // $('#goal-section').removeClass('hide')
   $('#sign-back-in').addClass('hide')
+
+  setTimeout(() => {
+    $('h2').text('Make a selection.')
+  }, 1000)
 
   store.user = res.user
 }
@@ -50,6 +53,7 @@ const onSignOutFailure = function () {
 
 const onSignOutSuccess = function () {
   store.user = null
+  $('h1').removeClass('hide')
   $('h1').text('Good-bye')
   $('h2').text('Signed out successfully')
   $('button').addClass('hide')
@@ -58,7 +62,7 @@ const onSignOutSuccess = function () {
 }
 
 const signBackIn = function () {
-  $('h1').text('Welcome')
+  $('h1').text('Welcome back')
   $('h2').text('Sign in')
   $('#landing').removeClass('hide')
   $('#sign-back-in').addClass('hide')

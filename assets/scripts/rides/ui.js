@@ -20,6 +20,11 @@ const onIndexRidesSuccess = function (res) {
     </tr>
     `
   }))
+  if (!res.rides.length > 0) {
+    $('h2').text('No rides to display.')
+  } else {
+    $('h2').text('Your rides are below.')
+  }
 }
 
 const onIndexRidesFailure = function () {
@@ -75,6 +80,13 @@ const onUpdateRideFailure = function () {
   $('h2').addClass('error')
 }
 
+const resetText = function () {
+  setTimeout(() => {
+    $('h2').text('Choose a selection.')
+    $('h1').addClass('hide')
+  }, 1000)
+}
+
 module.exports = {
   onIndexRidesSuccess,
   onIndexRidesFailure,
@@ -83,5 +95,6 @@ module.exports = {
   onDeleteRideSuccess,
   onDeleteRideFailure,
   onUpdateRideSuccess,
-  onUpdateRideFailure
+  onUpdateRideFailure,
+  resetText
 }

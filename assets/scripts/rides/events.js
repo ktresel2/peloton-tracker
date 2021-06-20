@@ -7,7 +7,7 @@ const ui = require('./ui')
 
 const onIndexRides = function () {
   api.indexRides()
-    .then(ui.onIndexRidesSuccess).catch(ui.onIndexRidesFailure)
+    .then(ui.onIndexRidesSuccess).then(ui.resetText).catch(ui.onIndexRidesFailure)
 }
 
 const onAddNewRide = function (e) {
@@ -15,13 +15,13 @@ const onAddNewRide = function (e) {
   const data = getFormFields(e.target)
 
   api.addRide(data)
-    .then(ui.onAddRideSuccess).catch(ui.onAddRideFailure)
+    .then(ui.onAddRideSuccess).then(ui.resetText).catch(ui.onAddRideFailure)
 }
 
 const onDeleteRide = function (e) {
   const id = $(e.target).data('id')
   api.deleteRide(id)
-    .then(ui.onDeleteRideSuccess).then(() => onIndexRides()).catch(ui.onDeleteRideFailure)
+    .then(ui.onDeleteRideSuccess).then(ui.resetText).then(() => onIndexRides()).catch(ui.onDeleteRideFailure)
 }
 
 const onUpdateRide = function (e) {
@@ -30,7 +30,7 @@ const onUpdateRide = function (e) {
   const id = $(e.target).data('id')
 
   api.updateRide(id, data)
-    .then(ui.onUpdateRideSuccess).then(() => onIndexRides()).catch(ui.onUpdateRideFailure)
+    .then(ui.onUpdateRideSuccess).then(ui.resetText).then(() => onIndexRides()).catch(ui.onUpdateRideFailure)
 }
 
 const onBeginUpdate = function (e) {
