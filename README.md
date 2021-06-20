@@ -15,4 +15,4 @@ As a user, I want to:
 - delete a ride or change previously submitted data
 
 
-![Wireframes](https://imgur.com/28F04up)
+![Wireframes](https://i.imgur.com/28F04up.jpeg)
