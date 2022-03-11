@@ -1,17 +1,17 @@
-'use strict'
+"use strict";
 
-let apiUrl
+let apiUrl;
 const apiUrls = {
-  production: 'https://ancient-thicket-87033.herokuapp.com',
-  development: 'http://localhost:4741'
-}
+  production: "https://peloton-tracker.herokuapp.com",
+  development: "http://localhost:4741",
+};
 
-if (window.location.hostname === 'localhost') {
-  apiUrl = apiUrls.development
+if (window.location.hostname === "localhost") {
+  apiUrl = apiUrls.development;
 } else {
-  apiUrl = apiUrls.production
+  apiUrl = apiUrls.production;
 }
 
 module.exports = {
-  apiUrl
-}
+  apiUrl,
+};
